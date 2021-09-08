@@ -8,6 +8,7 @@
 }
 
 .feature_content {
+  display: block;
   height: 100vh;
   background-color: yellow;
   border: 3px solid purple;
@@ -31,12 +32,10 @@
   grid-area: "title";
 }
 
-#feature_1_min_max {
+.feature_min_max {
   grid-area: "min_max";
   width: 40px;
   height: 40px;
-  /*align-items: center;
-  justify-content: center;*/
   border: 1px solid blue;
 }
 
@@ -61,7 +60,7 @@
   bottom: 0;
   right: 0;
   height: 50px;
-  margin: 10px 30px;
+  margin: 30px 30px;
 }
 
 .feature_title {
