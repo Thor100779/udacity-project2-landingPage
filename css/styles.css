@@ -11,6 +11,11 @@ html {
   border: 2px dotted blue;
 }
 
+.feature_link {
+  color: black;
+  text-decoration: none;
+}
+
 .feature_content {
   display: block;
   height: 100vh;

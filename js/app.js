@@ -5,7 +5,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
       // Dynamically add sections to header bar
       let heading = document.createElement('li');
       heading.setAttribute('id', `header_section_${i}`);
-      heading.innerHTML = `<a href="#feature_${i}"><b>Section${i}</b></a>`;
+      heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>Section${i}</b></a>`;
+      heading.addEventListener('click', event => {
+        highlightActiveSection(i);
+      });
       headerSections.appendChild(heading);
 
       // Set sections up to have collpase/expand behavior
@@ -26,3 +29,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }
 });
+
+function highlightActiveSection(index) {
+  for (let i = 1; i <= 4; ++i) {
+    var section = document.getElementById(`feature_link_${i}`);
+    if (i === index) {
+      section.style.color = 'red';
+    } else {
+      section.style.color = 'black';
+    }
+  }
+}
