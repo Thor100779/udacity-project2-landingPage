@@ -1,6 +1,10 @@
 @import "header.css";
 @import "footer.css";
 
+html {
+  scroll-behavior: smooth;
+}
+
 #container {
   display: flex;
   flex-direction: column;
