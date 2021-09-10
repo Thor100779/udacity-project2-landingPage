@@ -26,10 +26,22 @@ html {
 
 .feature_content {
   display: block;
-  height: 100vh;
+  /*height: 100vh;*/
   background-color: #f8f0e3;
   /*border: 3px solid purple;*/
   text-align: center;
+  padding-bottom: 10px;
+}
+
+.feature_button {
+  background-color: blue;
+  color: white;
+  height: 50px;
+  width: 200px;
+}
+
+.feature_image {
+  padding: 10px 0px;
 }
 
 .feature_title_container {
@@ -55,8 +67,8 @@ html {
   grid-area: "title";
 }
 
-#feature_1_image {
-  width: 100%;
+.feature_image {
+  width: 95%;
 }
 
 .feature_text {
@@ -68,6 +80,14 @@ html {
   width: 30px;
   height: 30px;
   /*border: 1px solid blue;*/
+}
+
+.review_text {
+  padding: 0px 10px;
+}
+
+.rating_image {
+  width: 100%;
 }
 
 /*#feature_1_content {
