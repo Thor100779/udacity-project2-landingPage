@@ -1,8 +1,8 @@
 #footer {
   display: flex;
   flex-direction: row;
-  background-color: maroon;
-  color: gold;
+  background-color: black;
+  color: white;
   justify-content: center;
   padding: 10px;
 }

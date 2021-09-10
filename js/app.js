@@ -1,3 +1,8 @@
+const BRAND_FONT_COLOR = "#81371c";
+
+let features = ['Style', 'Flair', 'Swag', 'Reviews'];
+let fullFeatures = ['Man Cave Style', 'Flair For Days', 'BOGO Swag', 'Our Customers LOVE Us'];
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let headerSections = document.getElementById('header_sections');
 
@@ -5,7 +10,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       // Dynamically add sections to header bar
       let heading = document.createElement('li');
       heading.setAttribute('id', `header_section_${i}`);
-      heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>Section${i}</b></a>`;
+      heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>${features[i - 1]}</b></a>`;
+      heading.style.color = BRAND_FONT_COLOR;
       heading.addEventListener('click', event => {
         highlightActiveSection(i);
       });
@@ -28,15 +34,33 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
       });
     }
+
+    setFeatureTitles();
 });
 
 function highlightActiveSection(index) {
   for (let i = 1; i <= 4; ++i) {
     var section = document.getElementById(`feature_link_${i}`);
+
     if (i === index) {
-      section.style.color = 'red';
+      section.style.color = '#48b444';  // Green
+      section.style.textDecoration = 'underline';
     } else {
-      section.style.color = 'black';
+      section.style.color = '#81371c';  // Brown
+      section.style.textDecoration = 'none';
     }
+  }
+}
+
+function setFeatureTitles() {
+  for (let i = 1; i <= 4; ++i) {
+    let id = `feature_${i}_title`;
+    console.log(`id is ${id}`);
+    let title = document.getElementById(id);
+
+    if (title === null)
+      console.log("TITLE IS NULL");
+    else
+      title.innerText = `${fullFeatures[i - 1]}`;
   }
 }
