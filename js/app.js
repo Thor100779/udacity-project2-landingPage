@@ -6,14 +6,15 @@ let fullFeatures = ['Man Cave Style', 'Flair For Days', 'BOGO Swag', 'Our Custom
 window.addEventListener('DOMContentLoaded', (event) => {
     let headerSections = document.getElementById('header_sections');
 
+    // Dynamically add sections to header bar
     for (let i = 1; i <= 4; ++i) {
-      // Dynamically add sections to header bar
       let heading = document.createElement('li');
       heading.setAttribute('id', `header_section_${i}`);
       heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>${features[i - 1]}</b></a>`;
       heading.style.color = BRAND_FONT_COLOR;
       heading.addEventListener('click', event => {
-        highlightActiveSection(i);
+        //highlightActiveSectionLink(i);
+        highlightActiveFeature(i);
       });
       headerSections.appendChild(heading);
 
@@ -35,10 +36,65 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }
 
+    highlightActiveFeature(1);
     setFeatureTitles();
+
+    // Set up scroll to top
+    var scrollToTopButton = document.querySelector("#go_to_top");
+    var root = document.documentElement;
+
+    function updateGoToTopButton(entries, observer) {
+      //console.log("updateGoToTopButton");
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          scrollToTopButton.classList.remove("show_button");
+          scrollToTopButton.classList.add("hide_button");
+        } else {
+          scrollToTopButton.classList.add("show_button");
+          scrollToTopButton.classList.remove("hide_button");
+        }
+      });
+    }
+
+    function scrollToTop() {
+      root.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    scrollToTopButton.addEventListener("click", scrollToTop);
+    let scrollObserver = new IntersectionObserver(updateGoToTopButton);
+    var header = document.querySelector("header");
+    scrollObserver.observe(header);
+
+    for (let i = 1; i <= 4; ++i) {
+      let options = { threshold: 0.75 };
+      let feature = document.querySelector(`#feature_${i}_content`);
+      let featureObserver = new IntersectionObserver(function() { return highlightActiveFeature(i); }, options);
+      featureObserver.observe(feature);
+    }
 });
 
-function highlightActiveSection(index) {
+function highlightActiveFeature(index) {
+  console.log(`highlightActiveFeature(${index})`);
+  for (let i = 1; i <= 4; ++i) {
+    let section = document.getElementById(`feature_link_${i}`);
+    let feature = document.querySelector(`#feature_${i}_title_container`)
+
+    if (i === index) {
+      section.style.color = '#48b444';  // Green
+      section.style.textDecoration = 'underline';
+      feature.style.backgroundColor = '#48b444';
+    } else {
+      section.style.color = '#81371c';  // Brown
+      section.style.textDecoration = 'none';
+      feature.style.backgroundColor = '#81371c';
+    }
+  }
+}
+
+function highlightActiveSectionLink(index) {
   for (let i = 1; i <= 4; ++i) {
     var section = document.getElementById(`feature_link_${i}`);
 
@@ -55,12 +111,7 @@ function highlightActiveSection(index) {
 function setFeatureTitles() {
   for (let i = 1; i <= 4; ++i) {
     let id = `feature_${i}_title`;
-    console.log(`id is ${id}`);
     let title = document.getElementById(id);
-
-    if (title === null)
-      console.log("TITLE IS NULL");
-    else
-      title.innerText = `${fullFeatures[i - 1]}`;
+    title.innerText = `${fullFeatures[i - 1]}`;
   }
 }

@@ -5,19 +5,19 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0px;
+  background-color: #fed8a7; /* light brown */
+}
+
 #container {
   display: flex;
   flex-direction: column;
-  /*border: 2px dotted blue;*/
 }
 
 #company_logo {
   width: 150px;
 }
-
-/*.feature {
-  background-color: #81371c;
-}*/
 
 .feature_link {
   color: #81371c;
@@ -26,9 +26,7 @@ html {
 
 .feature_content {
   display: block;
-  /*height: 100vh;*/
-  background-color: #f8f0e3;
-  /*border: 3px solid purple;*/
+  background-color: #fed8a7;
   text-align: center;
   padding-bottom: 10px;
 }
@@ -38,6 +36,7 @@ html {
   color: white;
   height: 50px;
   width: 200px;
+  margin: 20px 0px;
 }
 
 .feature_image {
@@ -51,20 +50,26 @@ html {
   grid-template-areas:
     "title min_max";
   height: 75px;
-  background-color: #9cbf27; /* brown */
+  width: 98%;
+  background-color: #81371c; /*#9cbf27; /* brown */
   color: white; /* light tan: #fed8a7 */
   align-items: center;
   justify-content: center;
-  border: 3px solid #d5de21; /*#fed8a7;*/
+  border: 3px solid white;/* #d5de21; /*#fed8a7;*/
   border-style: ridge;
   text-shadow: -1px 1px 0 #000,
     1px 1px 0 #000,
     1px -1px 0 #000,
     -1px -1px 0 #000;
+  padding: 5px 0px;
 }
 
 #feature_1_title {
   grid-area: "title";
+}
+
+#feature_1_title_container {
+  background-color: #48b444;
 }
 
 .feature_image {
@@ -79,7 +84,6 @@ html {
   grid-area: "min_max";
   width: 30px;
   height: 30px;
-  /*border: 1px solid blue;*/
 }
 
 .review_text {
@@ -90,32 +94,24 @@ html {
   width: 100%;
 }
 
-/*#feature_1_content {
-  background-color: beige;
-}
-
-#feature_2_content {
-  background-color: silver;
-}
-
-#feature_3_content {
-  background-color: chartreuse;
-}
-
-#feature_4_content {
-  background-color: indigo;
-}*/
-
 #go_to_top {
   position: fixed;
   bottom: 0;
   right: 0;
   height: 50px;
-  margin: 30px 30px;
+  margin: 30px 10px;
+  z-index: 100; /* overlay, should appear above all other content */
 }
 
 .feature_title {
   font-size: 34px;
-  /*border: 1px solid green;*/
   padding-left: 20px;
+}
+
+.show_button {
+  opacity: 1;
+}
+
+.hide_button {
+  opacity: 0;
 }
