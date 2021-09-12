@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Set up observers for each of the feature sections, for highlighting purposes
     for (let i = 1; i <= 4; ++i) {
-      let options = { threshold: 0.7 };  // This value determined experimentally, other values produced erratic behavior.
+      let options = { threshold: 0.5 };  // This value of 0.7 determined experimentally, other values produced erratic behavior.
       let feature = document.querySelector(`#feature_${i}_content`);
       let featureObserver = new IntersectionObserver(function(entries, observer) {
         console.log("In intersection observer");

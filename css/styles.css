@@ -3,6 +3,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 200px;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
   display: block;
   background-color: #fed8a7;
   text-align: center;
-  padding-bottom: 10px;
+  /*padding-bottom: 0px;*/
   font-size: 18px;
 }
 
@@ -52,19 +53,20 @@ body {
   grid-template-rows: 100%;
   grid-template-areas:
     "title min_max";
-  height: 75px;
-  width: 98%;
+  height: 100px;
+  width: 100%;
   background-color: #81371c; /*#9cbf27; /* brown */
   color: white; /* light tan: #fed8a7 */
   align-items: center;
   justify-content: center;
   border: 3px solid white;/* #d5de21; /*#fed8a7;*/
   border-style: ridge;
+  box-sizing: border-box;
   text-shadow: -1px 1px 0 #000,
     1px 1px 0 #000,
     1px -1px 0 #000,
     -1px -1px 0 #000;
-  padding: 5px 0px;
+  /*padding: 0px 0px;*/
 }
 
 #feature_1_title {
@@ -75,8 +77,20 @@ body {
   background-color: #48b444;
 }
 
-#feature_1 {
-  margin-top: 200px;
+/*
+Got idea for this from: https://css-tricks.com/hash-tag-links-padding/
+The issue I ran into was that after making my header fixed, the anchor links for each of the features were navigating
+to the wrong place. I mean, it was right the place, but now it needed to be offset by the header size so the feature title
+started in the visible area and wasn't clipped by the header.
+*/
+#feature_1::before {
+  display: block;
+  content: " ";
+  margin-top: 0px;
+  height: 197px;
+  visibility: hidden;
+  pointer-events: none;
+  border: 2px solid black;
 }
 
 .feature_image {
@@ -112,7 +126,7 @@ body {
 
 .feature_title {
   font-size: 34px;
-  padding-left: 20px;
+  padding: 20px 20px;
 }
 
 .show_button {
