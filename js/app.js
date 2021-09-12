@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
       heading.setAttribute('id', `header_section_${i}`);
       heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>${features[i - 1]}</b></a>`;
       heading.addEventListener('click', event => {
-        //console.log("In add event listener");
         highlightActiveFeature(i);
       });
       headerSections.appendChild(heading);
@@ -64,7 +63,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Set up observers for each of the feature sections, for highlighting purposes
     for (let i = 1; i <= 4; ++i) {
-      let options = { threshold: 0.75 };  // This value determined experimentally, other values produced erratic behavior.
+      let options = { threshold: 0.7 };  // This value determined experimentally, other values produced erratic behavior.
       let feature = document.querySelector(`#feature_${i}_content`);
       let featureObserver = new IntersectionObserver(function(entries, observer) {
         console.log("In intersection observer");

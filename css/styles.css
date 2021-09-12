@@ -8,6 +8,7 @@ html {
 body {
   margin: 0px;
   background-color: #fed8a7; /* light brown */
+  font-family: Oswald, arial, helvetica;
 }
 
 #container {
@@ -29,14 +30,16 @@ body {
   background-color: #fed8a7;
   text-align: center;
   padding-bottom: 10px;
+  font-size: 18px;
 }
 
 .feature_button {
   background-color: blue;
   color: white;
-  height: 50px;
   width: 200px;
   margin: 20px 0px;
+  font-family: Oswald;
+  font-size: 18px;
 }
 
 .feature_image {
@@ -70,6 +73,10 @@ body {
 
 #feature_1_title_container {
   background-color: #48b444;
+}
+
+#feature_1 {
+  margin-top: 200px;
 }
 
 .feature_image {

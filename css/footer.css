@@ -1,8 +1,14 @@
 #footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: black;
   color: white;
   justify-content: center;
   padding: 20px;
+  align-items: center;
+}
+
+#fb_icon {
+  width: 30px;
+  height: 30px;
 }
