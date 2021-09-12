@@ -77,7 +77,7 @@ body {
 }
 
 .feature_text {
-  padding: 0px 10px;
+  padding: 0px 20px;
 }
 
 .feature_min_max {
@@ -87,11 +87,11 @@ body {
 }
 
 .review_text {
-  padding: 0px 10px;
+  padding: 10px 30px 0px 30px;
 }
 
 .rating_image {
-  width: 100%;
+  width: 80%;
 }
 
 #go_to_top {

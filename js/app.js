@@ -3,17 +3,18 @@ const BRAND_FONT_COLOR = "#81371c";
 let features = ['Style', 'Flair', 'Swag', 'Reviews'];
 let fullFeatures = ['Man Cave Style', 'Flair For Days', 'BOGO Swag', 'Our Customers LOVE Us'];
 
+var root = document.documentElement;
+
 window.addEventListener('DOMContentLoaded', (event) => {
     let headerSections = document.getElementById('header_sections');
 
-    // Dynamically add sections to header bar
+    // Dynamically add sections to header bar, per project guidelines
     for (let i = 1; i <= 4; ++i) {
       let heading = document.createElement('li');
       heading.setAttribute('id', `header_section_${i}`);
       heading.innerHTML = `<a id="feature_link_${i}" class="feature_link" href="#feature_${i}"><b>${features[i - 1]}</b></a>`;
-      heading.style.color = BRAND_FONT_COLOR;
       heading.addEventListener('click', event => {
-        //highlightActiveSectionLink(i);
+        //console.log("In add event listener");
         highlightActiveFeature(i);
       });
       headerSections.appendChild(heading);
@@ -36,12 +37,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }
 
-    highlightActiveFeature(1);
+    document.querySelector('#feature_link_1').style.color = '#48b444';  // Initialize first link to be active feature since page starts from the top
     setFeatureTitles();
 
     // Set up scroll to top
     var scrollToTopButton = document.querySelector("#go_to_top");
-    var root = document.documentElement;
 
     function updateGoToTopButton(entries, observer) {
       //console.log("updateGoToTopButton");
@@ -56,25 +56,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
       });
     }
 
-    function scrollToTop() {
-      root.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
+    // Add functionality for scroll to top button that appears over the lower right corner of the screen
     scrollToTopButton.addEventListener("click", scrollToTop);
     let scrollObserver = new IntersectionObserver(updateGoToTopButton);
     var header = document.querySelector("header");
     scrollObserver.observe(header);
 
+    // Set up observers for each of the feature sections, for highlighting purposes
     for (let i = 1; i <= 4; ++i) {
-      let options = { threshold: 0.75 };
+      let options = { threshold: 0.75 };  // This value determined experimentally, other values produced erratic behavior.
       let feature = document.querySelector(`#feature_${i}_content`);
-      let featureObserver = new IntersectionObserver(function() { return highlightActiveFeature(i); }, options);
+      let featureObserver = new IntersectionObserver(function(entries, observer) {
+        console.log("In intersection observer");
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            return highlightActiveFeature(i);
+          }
+        });
+      }, options);
       featureObserver.observe(feature);
     }
 });
+
+function scrollToTop() {
+  console.log("scrollToTop()");
+  root.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
 function highlightActiveFeature(index) {
   console.log(`highlightActiveFeature(${index})`);
