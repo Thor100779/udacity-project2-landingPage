@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector('#feature_link_1').style.color = '#48b444';  // Initialize first link to be active feature since page starts from the top
     setFeatureTitles();
 
-    // Set up scroll to top
+    // Set up functionality for scrollToTop button
     var scrollToTopButton = document.querySelector("#go_to_top");
 
     function updateGoToTopButton(entries, observer) {
@@ -58,8 +58,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Add functionality for scroll to top button that appears over the lower right corner of the screen
     scrollToTopButton.addEventListener("click", scrollToTop);
     let scrollObserver = new IntersectionObserver(updateGoToTopButton);
-    var header = document.querySelector("header");
-    scrollObserver.observe(header);
+    let feature1 = document.querySelector('#feature_1_title_container');
+    scrollObserver.observe(feature1);
 
     // Set up observers for each of the feature sections, for highlighting purposes
     for (let i = 1; i <= 4; ++i) {
