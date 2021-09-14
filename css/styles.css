@@ -54,8 +54,8 @@ body {
     "title min_max";
   height: 100px;
   width: 100%;
-  background-color: #81371c; /*#9cbf27; /* brown */
-  color: white; /* light tan: #fed8a7 */
+  background-color: #81371c;
+  color: white;
   align-items: center;
   justify-content: center;
   border: 3px solid white;

@@ -43,7 +43,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     var scrollToTopButton = document.querySelector("#go_to_top");
 
     function updateGoToTopButton(entries, observer) {
-      //console.log("updateGoToTopButton");
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           scrollToTopButton.classList.remove("show_button");
