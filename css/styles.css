@@ -34,16 +34,15 @@ body {
 }
 
 .feature_button {
+  grid-area: "button";
   background-color: blue;
   color: white;
   width: 200px;
   margin: 20px 0px;
   font-family: Oswald;
   font-size: 18px;
-}
-
-.feature_image {
-  padding: 10px 0px;
+  border-style: inset;
+  padding: 10px 20px;
 }
 
 .feature_title_container {
@@ -92,10 +91,13 @@ started in the visible area and wasn't clipped by the header.
 }
 
 .feature_image {
+  grid-area: "img";
   width: 95%;
+  padding: 10px 0px;
 }
 
 .feature_text {
+  grid-area: "text";
   padding: 0px 20px;
 }
 
@@ -106,7 +108,7 @@ started in the visible area and wasn't clipped by the header.
 }
 
 .review_text {
-  padding: 10px 30px 0px 30px;
+  padding: 10px 30px 10px 30px;
 }
 
 .rating_image {
@@ -123,7 +125,7 @@ started in the visible area and wasn't clipped by the header.
 }
 
 .feature_title {
-  font-size: 34px;
+  font-size: 28px;
   padding: 20px 20px;
 }
 
@@ -133,4 +135,121 @@ started in the visible area and wasn't clipped by the header.
 
 .hide_button {
   opacity: 0;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature_min_max {
+  cursor: pointer;
+}
+
+#feature_4_content {
+  padding: 30px 0px;
+}
+
+@media(min-width: 600px) {
+  .feature_title_container {
+    grid-template-columns: 14fr 1fr;
+  }
+}
+
+@media(min-width: 1200px) {
+  html {
+    scroll-padding-top: 150px;
+  }
+
+  #company_logo {
+    padding-right: 600px;
+  }
+
+  .feature_title_container {
+    grid-template-columns: 18fr 1fr;
+    padding-left: 12px;
+    height: 60px;
+  }
+
+  #form_1 {
+    grid-area: "form";
+  }
+
+  .feature_text_button {
+    grid-area: "textButton";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+    justify-content: center;
+  }
+
+  .feature_text {
+    font-size: 26px;
+    justify-content: center;
+  }
+
+  .feature_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "img textButton";
+    grid-gap: 5px;
+    background-color: #fed8a7;
+    font-size: 18px;
+    padding: 30px 100px;
+    justify-content: center;
+    height: 475px;
+  }
+
+  #feature_1::before {
+    display: block;
+    content: " ";
+    margin-top: 0px;
+    height: 147px;
+    visibility: hidden;
+    pointer-events: none;
+    border: 2px solid black;
+  }
+
+  .feature_image {
+    width: 80%;
+    height: 95%;
+  }
+
+  .feature_button {
+    padding: 10px 20px;
+    font-size: 26px;
+  }
+
+  #feature_4_content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50%;
+    grid-areas:
+      "review1 review2 review3";
+    justify-content: space-between;
+    padding: 100px 0px;
+  }
+
+  #review_1 {
+    grid-area: "review1";
+  }
+
+  #review_2 {
+    grid-area: "review2";
+  }
+
+  #review_3 {
+    grid-area: "review3";
+  }
+}
+
+@media(min-width: 1600px) {
+  .feature_title_container {
+    grid-template-columns: 24fr 1fr;
+    padding-left: 12px;
+  }
 }

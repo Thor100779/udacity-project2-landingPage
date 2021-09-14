@@ -49,5 +49,13 @@
 @media(min-width: 600px) {
   #header_sections li {
     display: inline;
+    font-size: 26px;
+    padding-right: 30px;
+  }
+}
+
+@media(min-width: 1200px) {
+  #header {
+    height: 150px;
   }
 }

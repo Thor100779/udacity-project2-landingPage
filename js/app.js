@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
           collapseButton.setAttribute("src", "images/expand_icon.jpg");
         }
         else {
-          featureSection.style.display = 'block';
+          featureSection.style.display = 'grid';
           featureSection.classList.add("active");
           collapseButton.setAttribute("src", "images/collapse_icon.jpg");
         }
