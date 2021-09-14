@@ -43,6 +43,7 @@ body {
   font-size: 18px;
   border-style: inset;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .feature_title_container {
@@ -122,6 +123,7 @@ started in the visible area and wasn't clipped by the header.
   height: 50px;
   margin: 30px 10px;
   z-index: 100; /* overlay, should appear above all other content */
+  cursor: pointer;
 }
 
 .feature_title {
